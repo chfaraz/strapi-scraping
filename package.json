@@ -1,0 +1,42 @@
+{
+  "name": "jamstack-scraper",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cheerio": "^1.0.0-rc.10",
+    "cron-parser": "^3.5.0",
+    "knex": "0.21.18",
+    "puppeteer": "^10.2.0",
+    "sqlite3": "5.0.0",
+    "strapi": "3.6.6",
+    "strapi-admin": "3.6.6",
+    "strapi-connector-bookshelf": "3.6.6",
+    "strapi-plugin-content-manager": "3.6.6",
+    "strapi-plugin-content-type-builder": "3.6.6",
+    "strapi-plugin-email": "3.6.6",
+    "strapi-plugin-i18n": "3.6.6",
+    "strapi-plugin-upload": "3.6.6",
+    "strapi-plugin-users-permissions": "3.6.6",
+    "strapi-utils": "3.6.6"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "051e98f9-adc2-4b68-94c7-6dd78e7aa64c"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": "^6.0.0"
+  },
+  "license": "MIT"
+}
