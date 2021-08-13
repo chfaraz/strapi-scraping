@@ -4,7 +4,6 @@ const parser = require("cron-parser");
 const chalk = require("chalk");
 
 const scraperCanRun = async (scraper) => {
-  console.log("===========>>>", scraper);
   const frequency = parser.parseExpression(scraper.frequency);
   console.log(
     "==========================================================================================="
@@ -41,7 +40,7 @@ const scraperCanRun = async (scraper) => {
 };
 
 const getAllSG = async (scraper) => {
-  const existingSG = await strapi.query("site-generated").find(
+  const existingSG = await strapi.query("items").find(
     {
       _limit: 1000,
       scraper: scraper.id,

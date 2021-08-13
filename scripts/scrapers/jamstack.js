@@ -16,14 +16,28 @@ let errors = [];
 let newSG = 0;
 
 const scrape = async (allSG, scraper) => {
-  const url = "https://jamstack.org/generators/";
-  const browser = await puppeteer.launch({
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  });
+  const url = "https://www.harrods.com/en-pk/shopping/a-emery";
+  const browser = await puppeteer.launch(
+    // {
+    // userDataDir: "./user_data",
+    // },
+    {
+      headless: true,
+      slowMo: 1000, // slow down by 250ms
+    },
+    {
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    }
+  );
   const page = await browser.newPage();
 
   try {
     await page.goto(url);
+    const html = await page.content();
+    console.log(html);
+
+    // await page.target().createCDPSession();
+    await page.screenshot({ path: "example.png" });
   } catch (e) {
     console.log(`${chalk.red("Error")}: (${url})`);
     errors.push({
@@ -34,53 +48,41 @@ const scrape = async (allSG, scraper) => {
     return;
   }
 
-  const expression = "//div[@class='generator-card flex flex-col h-full']";
+  const expression = "//a[@class='css-io3gwt e7gi9o16']";
   const elements = await page.$x(expression);
-  await page.waitForXPath(expression, { timeout: 3000 });
+
+  console.log(elements);
+  await page.waitForXPath(expression);
 
   const promise = new Promise((resolve, reject) => {
     elements.forEach(async (element) => {
       let card = await page.evaluate((el) => el.innerHTML, element);
       let $ = cheerio.load(card);
-      const name = $(".text-xl").text().trim() || null;
+      const image_url = $(".e7gi9o10").find("img").attr("src") || null;
+      console.log(image_url);
       // Skip this iteration if the sg is already in db
-      if (allSG.includes(name)) return;
-      const stars =
-        $('span:contains("stars")')
-          .parent()
-          .text()
-          .replace("stars", "")
-          .trim() || null;
-      const forks =
-        $('span:contains("forks")')
-          .parent()
-          .text()
-          .replace("forks", "")
-          .trim() || null;
-      const issues =
-        $('span:contains("issues")')
-          .parent()
-          .text()
-          .replace("issues", "")
-          .trim() || null;
-      const description = $(".text-sm.mb-4").text().trim() || null;
-      const language =
-        $('dt:contains("Language:")').next().text().trim() || null;
-      const template =
-        $('dt:contains("Templates:")').next().text().trim() || null;
-      const license = $('dt:contains("License:")').next().text().trim() || null;
-      const deployLink = $('a:contains("Deploy")').attr("href") || null;
+      if (allSG.includes(image_url)) return;
+      const brand = $(".e7gi9o112").text().trim() || null;
+      const title = $(".e7gi9o114").text().trim() || null;
+      const price = $(".e1h3wjaz1").text().trim() || null;
+      //   const description = $(".text-sm.mb-4").text().trim() || null;
+      //   const language =
+      //     $('dt:contains("Language:")').next().text().trim() || null;
+      //   const template =
+      //     $('dt:contains("Templates:")').next().text().trim() || null;
+      //   const license = $('dt:contains("License:")').next().text().trim() || null;
+      //   const deployLink = $('a:contains("Deploy")').attr("href") || null;
 
       await createSiteGenerators(
-        name,
-        stars,
-        forks,
-        issues,
-        description,
-        language,
-        template,
-        license,
-        deployLink,
+        image_url,
+        brand,
+        title,
+        price,
+        // description,
+        // language,
+        // template,
+        // license,
+        // deployLink,
         scraper
       );
       newSG += 1;
@@ -95,7 +97,7 @@ const scrape = async (allSG, scraper) => {
 
 const main = async () => {
   // Fetch the correct scraper thanks to the slug
-  const slug = "jamstack-org";
+  const slug = "harrods-com";
   const scraper = await strapi.query("scraper").findOne({
     slug: slug,
   });

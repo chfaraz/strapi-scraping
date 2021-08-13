@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "items",
+  "info": {
+    "name": "items",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image_url": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    },
+    "scraper": {
+      "via": "items",
+      "model": "scraper"
+    }
+  }
+}

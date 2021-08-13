@@ -38,10 +38,6 @@
     },
     "deploy_to_netlify_link": {
       "type": "string"
-    },
-    "scraper": {
-      "via": "site_generator",
-      "model": "scraper"
     }
   }
 }

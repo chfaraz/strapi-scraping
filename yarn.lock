@@ -2576,7 +2576,7 @@ cheerio-select@^1.5.0:
     domhandler "^4.2.0"
     domutils "^2.7.0"
 
-cheerio@^1.0.0-rc.10:
+cheerio@^1.0.0-rc.10, cheerio@^1.0.0-rc.5:
   version "1.0.0-rc.10"
   resolved "https://registry.yarnpkg.com/cheerio/-/cheerio-1.0.0-rc.10.tgz#2ba3dcdfcc26e7956fc1f440e61d51c643379f3e"
   integrity sha512-g0J0q/O6mW8z5zxQ3A8E8J1hUgp4SMOvEoW/x84OwyHKe/Zccz83PVT4y5Crcr530FV6NgmKI1qvGTKVl9XXVw==
@@ -7461,6 +7461,11 @@ path-to-regexp@^1.1.1, path-to-regexp@^1.7.0:
   dependencies:
     isarray "0.0.1"
 
+path-to-regexp@^3.1.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-3.2.0.tgz#fa7877ecbc495c601907562222453c43cc204a5f"
+  integrity sha512-jczvQbCUS7XmS7o+y1aEO9OBVFeZBQ1MDSEqmO7xSoPgOPoowY/SxLpZ6Vh97/8qHZOteiCKb7gkG9gA2ZUxJA==
+
 pause@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/pause/-/pause-0.0.1.tgz#1d408b3fdb76923b9543d96fb4c9dfd535d9cb5d"
@@ -9679,6 +9684,38 @@ strapi-plugin-content-type-builder@3.6.6:
     strapi-utils "3.6.6"
     yup "^0.32.9"
 
+strapi-plugin-documentation@3.6.6:
+  version "3.6.6"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-documentation/-/strapi-plugin-documentation-3.6.6.tgz#f0bc11fc2506b7590e488181e96b0f23ebd96a97"
+  integrity sha512-PwuLSiaPco2fisViAbHWNsezUmrGjaQQy+wO6r/duoBJnNhLbBYSZdlrw/HPAU3GefxCYkbfrsMMSwIer5wV4g==
+  dependencies:
+    "@buffetjs/core" "3.3.8"
+    "@buffetjs/custom" "3.3.8"
+    "@buffetjs/hooks" "3.3.8"
+    "@buffetjs/icons" "3.3.8"
+    "@buffetjs/styles" "3.3.8"
+    "@buffetjs/utils" "3.3.8"
+    cheerio "^1.0.0-rc.5"
+    fs-extra "^9.1.0"
+    immutable "^3.8.2"
+    koa-static "^5.0.0"
+    lodash "4.17.21"
+    moment "^2.29.1"
+    path-to-regexp "^3.1.0"
+    react "^16.14.0"
+    react-copy-to-clipboard "^5.0.3"
+    react-dom "^16.9.0"
+    react-intl "4.5.0"
+    react-redux "7.2.3"
+    react-router "^5.2.0"
+    react-router-dom "^5.0.0"
+    reactstrap "8.4.1"
+    redux "^4.0.1"
+    redux-immutable "^4.0.0"
+    reselect "^4.0.0"
+    strapi-helper-plugin "3.6.6"
+    swagger-ui-dist "3.47.1"
+
 strapi-plugin-email@3.6.6:
   version "3.6.6"
   resolved "https://registry.yarnpkg.com/strapi-plugin-email/-/strapi-plugin-email-3.6.6.tgz#d0f67a2912b9162103882061232ffdc6118c5396"
@@ -10055,6 +10092,11 @@ supports-color@^7.1.0:
   integrity sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
   dependencies:
     has-flag "^4.0.0"
+
+swagger-ui-dist@3.47.1:
+  version "3.47.1"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.47.1.tgz#03b214a40d61e417051879cdb4a96f9c6b518a38"
+  integrity sha512-7b9iHDC/GGC9SJLd3HiV/3EnsJ3wu7xN8Q4MpOPfQO8UG7TQFG2TMTDkvvy0SNeqxQY0tGQY0ppZC9a95tW3kg==
 
 switchback@^2.0.1:
   version "2.0.5"

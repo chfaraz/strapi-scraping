@@ -3,28 +3,28 @@
 const chalk = require("chalk");
 
 const createSiteGenerators = async (
-  name,
-  stars,
-  forks,
-  issues,
-  description,
-  language,
-  template,
-  license,
-  deployLink,
+  image_url,
+  brand,
+  title,
+  price,
+  // description,
+  // language,
+  // template,
+  // license,
+  // deployLink,
   scraper
 ) => {
   try {
-    const entry = await strapi.query("site-generated").create({
-      name: name,
-      stars: stars,
-      forks: forks,
-      issues: issues,
-      description: description,
-      language: language,
-      templates: template,
-      license: license,
-      deploy_to_netlify_link: deployLink,
+    const entry = await strapi.query("items").create({
+      image_url,
+      brand,
+      title,
+      price,
+      // description,
+      // language,
+      // template,
+      // license,
+      // deployLink,
       scraper: scraper.id,
     });
   } catch (e) {

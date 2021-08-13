@@ -12,10 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "site_generator": {
-      "collection": "site-generated",
-      "via": "scraper"
-    },
     "name": {
       "type": "string"
     },
@@ -40,6 +36,10 @@
     },
     "next_execution_at": {
       "type": "string"
+    },
+    "items": {
+      "via": "scraper",
+      "collection": "items"
     }
   }
 }
